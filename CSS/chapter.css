@@ -22,7 +22,8 @@ body {
   align-items: center;
   justify-content: center;
   max-width: 80%;
-  
+  overflow: visible; /* allows zoomed-in content to overflow */
+
 }
 
 h1.text-center {
