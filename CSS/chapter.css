@@ -80,8 +80,3 @@ h1.text-center {
   color: #fff;
   box-shadow: 0 0 12px #ff2ebc;
 }
-.zoom-container {
-  width: 100%;
-  overflow: auto;
-  touch-action: auto;
-}
