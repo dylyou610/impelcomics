@@ -10,21 +10,19 @@ body {
 }
 
 .comic-carousel {
-  width: 520px;        /* Reduced from 700px */
-  height: 760px;       /* Reduced from 1100px */
+  width: 100%;
+  max-width: 520px;
+  height: auto;
   border: 2px solid #00ffe5;
   border-radius: 10px;
   box-shadow: 0 0 12px #00ffe5;
   background-color: #000;
   margin-bottom: 20px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 80%;
-  overflow: visible; /* allows zoomed-in content to overflow */
-
+  overflow-x: auto; /* enable horizontal scroll */
+  overflow-y: auto; /* enable vertical scroll */
+  -webkit-overflow-scrolling: touch;
 }
+
 
 h1.text-center {
   color: white;
