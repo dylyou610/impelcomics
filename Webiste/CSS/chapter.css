@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  background: linear-gradient(to right, #0d0d0d, #1f003b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+
+}
+
+.comic-carousel {
+  width: 520px;        /* Reduced from 700px */
+  height: 760px;       /* Reduced from 1100px */
+  border: 2px solid #00ffe5;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #00ffe5;
+  background-color: #000;
+  margin-bottom: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+}
+
+h1.text-center {
+  color: white;
+  font-size: 1.5rem; /* Adjusted font size */
+}
+
+.comic-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-controls {
+  width: 100%;
+  max-width: 420px;  /* Match the new carousel width */
+  color: #00ffe5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.carousel-controls input[type="range"] {
+  width: 100%;
+  accent-color: #00ffe5;
+  margin-bottom: 5px;
+}
+
+#pageCount {
+  font-size: 0.9rem;
+  color: #ff2ebc;
+}
+.carousel-controls .btn {
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+}
+
+
+.neon-blue-btn,
+.neon-pink-btn {
+  background-color: #00ffe5;
+  color: #0d0d0d;
+  border: none;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 10px #00ffe5;
+}
+
+.neon-blue-btn:hover,
+.neon-pink-btn:hover {
+  background-color: #ff2ebc;
+  color: #fff;
+  box-shadow: 0 0 12px #ff2ebc;
+}
