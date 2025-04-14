@@ -6,61 +6,82 @@ body {
   justify-content: center;
   flex-direction: column;
   min-height: 100vh;
-
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-.comic-carousel {
-  width: 100%;
-  max-width: 520px;
-  height: auto;
-  border: 2px solid #00ffe5;
-  border-radius: 10px;
-  box-shadow: 0 0 12px #00ffe5;
-  background-color: #000;
-  margin-bottom: 20px;
-  overflow-x: auto; /* enable horizontal scroll */
-  overflow-y: auto; /* enable vertical scroll */
-  -webkit-overflow-scrolling: touch;
-}
-
 
 h1.text-center {
   color: white;
-  font-size: 1.5rem; /* Adjusted font size */
+  font-size: 1.5rem;
 }
 
-.comic-carousel img {
+/* 📘 Reader Container + Image */
+.reader-container {
   max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  touch-action: auto; /* allow touch gestures */
+  position: relative;
+  overflow: hidden;
+  text-align: center;
 }
+
+.reader-container img {
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto;
+  touch-action: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+/* ⬅️➡️ Navigation Arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  color: #00ffe5;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0 15px;
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.nav-arrow:hover {
+  color: #ff2ebc;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+/* 📄 Page Indicator */
+.page-count {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #ff2ebc;
+}
+
+/* 🎚️ Slider Control */
 .carousel-controls {
   width: 100%;
-  max-width: 420px;  /* Match the new carousel width */
-  color: #00ffe5;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 420px;
   text-align: center;
+  margin-top: 1rem;
 }
 
 .carousel-controls input[type="range"] {
   width: 100%;
   accent-color: #00ffe5;
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
 }
 
-#pageCount {
-  font-size: 0.9rem;
-  color: #ff2ebc;
-}
-.carousel-controls .btn {
-  padding: 8px 16px;
-  font-size: 0.95rem;
-  border-radius: 6px;
-}
-
-
+/* 🎮 Buttons */
 .neon-blue-btn,
 .neon-pink-btn {
   background-color: #00ffe5;

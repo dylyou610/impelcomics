@@ -104,3 +104,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
+  const chapter = body.dataset.chapter;
+  const totalPages = parseInt(body.dataset.totalPages);
+  let currentPage = 1;
+
+  const img = document.getElementById('comicPage');
+  const pageSlider = document.getElementById('pageSlider');
+  const pageNumber = document.getElementById('pageNumber');
+  const pageCount = document.getElementById('pageCount');
+  const nextChapterBtn = document.getElementById('nextChapterBtn');
+
+  function updatePage() {
+    img.src = `/IMG/SH_Chapters/ch${chapter}/page (${currentPage}).jpg`;
+    if (pageNumber) pageNumber.textContent = `Page ${currentPage} of ${totalPages}`;
+    if (pageSlider) pageSlider.value = currentPage;
+    if (pageCount) pageCount.textContent = `Page ${currentPage} of ${totalPages}`;
+    if (nextChapterBtn) {
+      nextChapterBtn.style.display = (currentPage === totalPages) ? 'inline-block' : 'none';
+    }
+  }
+
+  window.nextPage = function () {
+    if (currentPage < totalPages) {
+      currentPage++;
+      updatePage();
+    }
+  };
+
+  window.prevPage = function () {
+    if (currentPage > 1) {
+      currentPage--;
+      updatePage();
+    }
+  };
+
+  if (pageSlider) {
+    pageSlider.addEventListener('input', (e) => {
+      currentPage = parseInt(e.target.value);
+      updatePage();
+    });
+  }
+
+  updatePage();
+});
