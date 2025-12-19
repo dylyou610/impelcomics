@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
   const img = document.getElementById('comicPage');
-  if (!img) return; // not a chapter page
+  if (!img) return;
 
   const body = document.body;
   const series = (body.dataset.series || '').toLowerCase();
@@ -128,37 +128,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalPages = parseInt(body.dataset.totalPages, 10);
 
   let currentPage = 1;
-
-  let basePath;
+  let basePath = '';
 
   switch (series) {
     case 'gammaofhearts':
-      // REAL folder: IMG/gammaofhearts/Chapters/Ch1/page (1).jpg
       basePath = '/IMG/gammaofhearts/Chapters/Ch';
       break;
-
     case 'sugarhill':
       basePath = '/IMG/SH_Chapters/ch';
       break;
-
     default:
       console.warn('Unknown series:', series);
       return;
   }
 
   function updatePage() {
-    // Keep filenames EXACTLY as-is: page (1).jpg
-    img.src = `${basePath}${chapter}/page (${currentPage}).jpg`;
+    const file = `page (${currentPage}).jpg`;
+    const encodedFile = encodeURIComponent(file); // ✅ desktop-safe
+    img.src = `${basePath}${chapter}/${encodedFile}`;
 
     const pageNumber = document.getElementById('pageNumber');
-    if (pageNumber) {
-      pageNumber.textContent = `Page ${currentPage} of ${totalPages}`;
-    }
+    if (pageNumber) pageNumber.textContent = `Page ${currentPage} of ${totalPages}`;
 
     console.log('Loading image:', img.src);
   }
 
-  // Navigation
   window.nextPage = () => {
     if (currentPage < totalPages) {
       currentPage++;
@@ -173,6 +167,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Init
   updatePage();
 });
