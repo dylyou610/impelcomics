@@ -101,3 +101,13 @@ h1.text-center {
   color: #fff;
   box-shadow: 0 0 12px #ff2ebc;
 }
+
+
+.comic-cover {
+  width: 100%;
+  height: auto;
+  max-width: 400px; /* or however wide your cards are */
+  object-fit: cover;
+  image-rendering: auto; /* makes sure browsers smooth scaling */
+  border-radius: 8px; /* optional, for style consistency */
+}

@@ -46,10 +46,51 @@
 <main class="comic-page container d-flex flex-column align-items-center" style="margin-top: 140px; min-height: 80vh;">
   <div class="d-flex flex-column flex-lg-row justify-content-center align-items-start gap-4 w-100">
 
+    <!-- 🆕 Comic Slot: Gamma of Hearts -->
+    <div class="d-flex flex-column align-items-center text-center">
+      <div class="comic-card position-relative mb-3">
+        <img src="/IMG/Gamma of Hearts/Cover/Cover.jpg" class="comic-cover" alt="Gamma of Hearts Cover">
+      </div>
+      <h1 class="comic-title mb-3">Gamma of Hearts</h1>
+      <p class="comic-description">
+       When Shaymus, a 23 year old genuis angineer and his sister accidentally activate a time machine, they're thrown 10,00 years into the future, seperating them upon arrival. The story then follows shaymus's journey to find his sister with the help of criminal aliens in a new hi tech, government corrupted society!
+      </p>
+    </div>
+<!-- 🧭 Buttons for Gamma -->
+<div class="d-flex flex-column align-items-start gap-3 align-self-center mt-n4">
+  <div class="d-flex gap-3">
+    <div class="position-relative">
+      <button class="btn btn-primary btn-lg" id="readNowBtn2" type="button" data-bs-toggle="collapse" data-bs-target="#chapterCollapse2" aria-expanded="false" aria-controls="chapterCollapse2">
+        Read Now
+      </button>
+      <div class="collapse position-absolute mt-2" id="chapterCollapse2" style="width: 100%;">
+        <div class="dropdown-style p-3 rounded w-100">
+          <button class="chapter-link mb-2 w-100" onclick="window.open('/HTML/gammaofhearts/ch1.html', '_blank')">Chapter 1</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-group position-relative">
+      <button class="btn btn-outline-light btn-lg dropdown-toggle" id="buyBtn2" data-bs-toggle="dropdown" aria-expanded="false">
+        Buy
+      </button>
+      <div class="dropdown-menu dropdown-style text-center w-100 p-3 mt-2">
+        <strong>Coming Soon!</strong><br>Physical copies soon.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+
+  <!-- 📚 Comic Slot: Sugarhill -->
+  <div class="d-flex flex-column flex-lg-row justify-content-center align-items-start gap-4 w-100 mt-5">
+
     <!-- Left: Comic card + title + description -->
     <div class="d-flex flex-column align-items-center text-center">
       <div class="comic-card position-relative mb-3">
-        <img src="/IMG/sugarhill/cover.jpg" class="comic-cover" alt="Comic Cover">
+        <img src="/IMG/sugarhill/cover.jpg" class="comic-cover" alt="Sugarhill Cover">
       </div>
       <h1 class="comic-title mb-3">Sugarhill</h1>
       <p class="comic-description">
@@ -58,39 +99,35 @@
     </div>
 
     <!-- Right: Buttons -->
-<!-- Right: Buttons (centered with comic) -->
-<!-- Right: Buttons (slightly higher and larger) -->
-<div class="d-flex flex-column align-items-start gap-3 align-self-center mt-n4">
-  <div class="d-flex gap-3">
+    <div class="d-flex flex-column align-items-start gap-3 align-self-center mt-n4">
+      <div class="d-flex gap-3">
 
-    <!-- 📖 Read Now Button + Slide Down Dropdown -->
-    <div class="position-relative">
-      <button class="btn btn-primary btn-lg" id="readNowBtn" type="button" data-bs-toggle="collapse" data-bs-target="#chapterCollapse" aria-expanded="false" aria-controls="chapterCollapse">
-        Read Now
-      </button>
-      <div class="collapse position-absolute mt-2" id="chapterCollapse" style="width: 100%;">
-        <div class="dropdown-style p-3 rounded w-100">
-          <button class="chapter-link mb-2 w-100" onclick="window.open('/HTML/Sugarhill Chp/ch1.html', '_blank')">Chapter 1</button>
-          <button class="chapter-link mb-2 w-100" onclick="window.open('/HTML/Sugarhill Chp/ch2.html', '_blank')">Chapter 2</button>
-          <button class="chapter-link w-100" onclick="window.open('/HTML/Sugarhill Chp/ch3.html', '_blank')">Chapter 3</button>
+        <div class="position-relative">
+          <button class="btn btn-primary btn-lg" id="readNowBtn" type="button" data-bs-toggle="collapse" data-bs-target="#chapterCollapse" aria-expanded="false" aria-controls="chapterCollapse">
+            Read Now
+          </button>
+          <div class="collapse position-absolute mt-2" id="chapterCollapse" style="width: 100%;">
+            <div class="dropdown-style p-3 rounded w-100">
+              <button class="chapter-link mb-2 w-100" onclick="window.open('/HTML/Sugarhill Chp/ch1.html', '_blank')">Chapter 1</button>
+              <button class="chapter-link mb-2 w-100" onclick="window.open('/HTML/Sugarhill Chp/ch2.html', '_blank')">Chapter 2</button>
+              <button class="chapter-link w-100" onclick="window.open('/HTML/Sugarhill Chp/ch3.html', '_blank')">Chapter 3</button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- 🛒 Buy Button + Coming Soon Dropdown -->
-    <div class="btn-group position-relative">
-      <button class="btn btn-outline-light btn-lg dropdown-toggle" id="buyBtn" data-bs-toggle="dropdown" aria-expanded="false">
-        Buy
-      </button>
-      <div class="dropdown-menu dropdown-style text-center w-100 p-3 mt-2">
-        <strong>Coming Soon!</strong><br>Physical copies soon.
+        <div class="btn-group position-relative">
+          <button class="btn btn-outline-light btn-lg dropdown-toggle" id="buyBtn" data-bs-toggle="dropdown" aria-expanded="false">
+            Buy
+          </button>
+          <div class="dropdown-menu dropdown-style text-center w-100 p-3 mt-2">
+            <strong>Coming Soon!</strong><br>Physical copies soon.
+          </div>
+        </div>
+
       </div>
     </div>
 
   </div>
-</div>
-
-
 </main>
 
 

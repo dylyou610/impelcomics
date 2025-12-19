@@ -24,3 +24,95 @@
     }
   }
   
+
+  .comic-cover {
+    width: 100%;
+    height: auto;
+    max-width: 400px; /* or however wide your cards are */
+    object-fit: cover;
+    image-rendering: auto; /* makes sure browsers smooth scaling */
+    border-radius: 8px; /* optional, for style consistency */
+  }
+
+  /* 🎯 Container setup: Center both comics side by side */
+.comic-page {
+  display: flex;
+  justify-content: center;     /* centers horizontally in the viewport */
+  align-items: flex-start;     /* aligns both tops perfectly */
+  flex-wrap: wrap;             /* allows stacking on smaller screens */
+  gap: 4rem;                   /* space between the two comics */
+  margin-top: 140px;
+  min-height: 80vh;
+}
+
+/* 🖼️ Each comic block (Gamma + Sugarhill) */
+.comic-page > .d-flex.flex-lg-row {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 📘 Comic Card Container */
+/* 📘 Comic Card Container */
+.comic-card {
+  width: 350px;                /* consistent width for both */
+  height: 500px;               /* consistent height for both */
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  transform: translateZ(0);    /* ✅ forces GPU rendering to prevent blurring */
+  backface-visibility: hidden; /* ✅ prevents subpixel blur in Chrome */
+}
+
+/* 🖼️ Comic Image (Crisp, Non-Pixelated) */
+.comic-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 12px;
+
+  /* 🪄 crisp scaling without harsh edges */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  filter: contrast(1.03) saturate(1.05);
+}
+
+
+
+/* ✏️ Titles + Descriptions */
+.comic-title {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.comic-description {
+  color: #ccc;
+  max-width: 350px;
+}
+
+/* 🧭 Buttons alignment */
+.d-flex.align-self-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+/* 📱 Responsive: Stack on mobile */
+@media (max-width: 992px) {
+  .comic-page {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+}
+
+
+
