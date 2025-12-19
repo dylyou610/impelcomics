@@ -116,89 +116,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // ------------------------------------------------------
-// 📖 Comic Reader Logic (Shared for all comic series)
+// 📖 Comic Reader Logic (keeps "page (1).jpg" filenames)
 // ------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
+  const img = document.getElementById('comicPage');
+  if (!img) return; // not a chapter page
+
   const body = document.body;
-  const chapter = body.dataset.chapter;
-  const totalPages = parseInt(body.dataset.totalPages);
   const series = (body.dataset.series || '').toLowerCase();
+  const chapter = body.dataset.chapter;
+  const totalPages = parseInt(body.dataset.totalPages, 10);
+
   let currentPage = 1;
 
-  const img = document.getElementById('comicPage');
-  const pageSlider = document.getElementById('pageSlider');
-  const pageNumber = document.getElementById('pageNumber');
-  const pageCount = document.getElementById('pageCount');
-  const nextChapterBtn = document.getElementById('nextChapterBtn');
-
-  // ✅ Determine correct folder and file format
   let basePath;
-  let useEncodedNames = false;
 
   switch (series) {
     case 'gammaofhearts':
-      basePath = '/IMG/Gamma of Hearts/Chapters/Ch';
-      useEncodedNames = true; // Gamma uses spaces and parentheses
+      // REAL folder: IMG/gammaofhearts/Chapters/Ch1/page (1).jpg
+      basePath = '/IMG/gammaofhearts/Chapters/Ch';
       break;
+
     case 'sugarhill':
       basePath = '/IMG/SH_Chapters/ch';
       break;
+
     default:
-      console.warn('No valid data-series found; defaulting to Sugarhill.');
-      basePath = '/IMG/SH_Chapters/ch';
+      console.warn('Unknown series:', series);
+      return;
   }
 
   function updatePage() {
-    if (!img) return;
+    // Keep filenames EXACTLY as-is: page (1).jpg
+    img.src = `${basePath}${chapter}/page (${currentPage}).jpg`;
 
-    // Gamma uses "page (1).jpg" etc. → must URL-encode
-    const encodedName = useEncodedNames
-      ? `page%20%28${currentPage}%29.jpg`
-      : `page-${currentPage}.jpg`;
-
-    img.src = `${basePath}${chapter}/${encodedName}`;
-    console.log("Loading image from:", img.src);
-
-    if (pageNumber)
+    const pageNumber = document.getElementById('pageNumber');
+    if (pageNumber) {
       pageNumber.textContent = `Page ${currentPage} of ${totalPages}`;
-    if (pageSlider) pageSlider.value = currentPage;
-    if (pageCount)
-      pageCount.textContent = `Page ${currentPage} of ${totalPages}`;
-    if (nextChapterBtn) {
-      nextChapterBtn.style.display =
-        currentPage === totalPages ? 'inline-block' : 'none';
     }
+
+    console.log('Loading image:', img.src);
   }
 
-  // 🔹 Next / Prev navigation
-  window.nextPage = function () {
+  // Navigation
+  window.nextPage = () => {
     if (currentPage < totalPages) {
       currentPage++;
       updatePage();
     }
   };
 
-  window.prevPage = function () {
+  window.prevPage = () => {
     if (currentPage > 1) {
       currentPage--;
       updatePage();
     }
   };
 
-  // 🔹 Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') nextPage();
-    if (e.key === 'ArrowLeft') prevPage();
-  });
-
-  // 🔹 Slider control
-  if (pageSlider) {
-    pageSlider.addEventListener('input', (e) => {
-      currentPage = parseInt(e.target.value);
-      updatePage();
-    });
-  }
-
-  // 🔹 Initialize
+  // Init
   updatePage();
 });
